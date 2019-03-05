@@ -15,11 +15,11 @@ public class OculusLHandGrab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float rTrigger = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger);
-        if (rTrigger > 0.2 && CollidingObject) {
+        float lTrigger = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger);
+        if (lTrigger > 0.2 && CollidingObject) {
             GrabObject();
         }
-        if (rTrigger < 0.2 && objectInHand) {
+        if (lTrigger < 0.2 && objectInHand) {
             ReleaseObject();
         }
     }
