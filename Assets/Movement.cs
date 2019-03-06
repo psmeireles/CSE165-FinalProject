@@ -5,6 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public GameObject leftController;
+
+    float timeStartedWalking;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +16,25 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update() {
         float lTrigger = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
-        if (lTrigger > 0.2) {
+        bool startedWalking = OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger);
+        bool stoppedWalking = OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger);
+
+        if (startedWalking) {
+            timeStartedWalking = Time.time;
+        }
+        else if (stoppedWalking) {
+            Vector3 pos = this.transform.position;
+            pos.y = 0.0f;
+            this.transform.position = pos;
+        }
+
+        if (lTrigger > 0) {
             Vector3 direction = leftController.transform.forward;
             direction.y = 0;
-            this.transform.Translate(direction * 0.2f);
+            this.transform.Translate(direction * lTrigger * 0.5f);
+            Vector3 pos = this.transform.position;
+            pos.y = Mathf.Sin((Time.time - timeStartedWalking)*5*lTrigger) * 0.1f;
+            this.transform.position = pos;
         }
     }
 }
