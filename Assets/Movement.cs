@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         float lTrigger = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
         bool startedWalking = OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger);
         bool stoppedWalking = OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger);
@@ -31,10 +31,12 @@ public class Movement : MonoBehaviour
         if (lTrigger > 0) {
             Vector3 direction = leftController.transform.forward;
             direction.y = 0;
-            this.transform.Translate(direction * lTrigger * 0.5f);
-            Vector3 pos = this.transform.position;
-            pos.y = Mathf.Sin((Time.time - timeStartedWalking)*5*lTrigger) * 0.1f;
-            this.transform.position = pos;
+            this.transform.Translate(direction * lTrigger * 0.3f);
+            
+            //Head Bobbing
+            //Vector3 pos = this.transform.position;
+            //pos.y = Mathf.Sin((Time.time - timeStartedWalking)*5*lTrigger) * 0.1f;
+            //this.transform.position = pos;
         }
     }
 }
