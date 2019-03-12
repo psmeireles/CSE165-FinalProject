@@ -6,8 +6,9 @@ public class Gun : MonoBehaviour
 {
     public GameObject rightHand;
     public GameObject leftHand;
-    public GameObject anchor;
+    public GameObject bullet;
     public GameObject correspondingGun;
+    float projSpeed;
     static Gun currentGun;
 
 
@@ -15,6 +16,7 @@ public class Gun : MonoBehaviour
     void Start()
     {
         correspondingGun.GetComponent<MeshRenderer>().enabled = false;
+        projSpeed = 1000;
     }
 
     // Update is called once per frame
@@ -53,6 +55,13 @@ public class Gun : MonoBehaviour
                 else {
                     currentGun = null;
                 }
+            }
+        }
+
+        if(currentGun == this) {
+            if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger)){
+                GameObject projectile = GameObject.Instantiate(bullet, this.correspondingGun.transform.position, Quaternion.identity);
+                projectile.GetComponent<Rigidbody>().AddForce(this.correspondingGun.transform.forward * projSpeed);
             }
         }
     }
