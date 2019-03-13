@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5515595221577987039}
   m_Layer: 0
   m_Name: Blue Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,6 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 2100000, guid: 714a8df453eda1b4db19b5c68ac1708b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
