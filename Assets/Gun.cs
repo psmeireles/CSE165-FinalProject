@@ -16,7 +16,7 @@ public class Gun : MonoBehaviour
     void Start()
     {
         correspondingGun.GetComponent<MeshRenderer>().enabled = false;
-        projSpeed = 1000;
+        projSpeed = 3000;
     }
 
     // Update is called once per frame
@@ -60,7 +60,7 @@ public class Gun : MonoBehaviour
 
         if(currentGun == this) {
             if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger)){
-                GameObject projectile = GameObject.Instantiate(bullet, this.correspondingGun.transform.position, Quaternion.identity);
+                GameObject projectile = GameObject.Instantiate(bullet, this.correspondingGun.transform.position, this.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(this.correspondingGun.transform.forward * projSpeed);
             }
         }
