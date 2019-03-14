@@ -51,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4807468358573872001}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -132,7 +132,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 4807468359507987929}
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.69999695, y: 0.5, z: 0}
+  m_ConnectedAnchor: {x: -0.7000017, y: 0.5, z: 0}
   serializedVersion: 2
   m_Spring: 300
   m_Damper: 10
