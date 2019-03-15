@@ -6,6 +6,7 @@ public class ToyColorizer : MonoBehaviour
 {
     int currentPart;
     MeshRenderer[] parts;
+    List<GameObject> currentCollisions = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +22,26 @@ public class ToyColorizer : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.tag == "Bullet") {
+
+        // Add the GameObject collided with to the list.
+        currentCollisions.Add(collision.gameObject);
+
+        bool colorable = false;
+        foreach (GameObject gObject in currentCollisions) {
+            if(gObject.tag == "Conveyor") {
+                colorable = true;
+            }
+        }
+
+        if (colorable && collision.gameObject.tag == "Bullet") {
             parts[currentPart].material = collision.gameObject.GetComponent<MeshRenderer>().material;
             currentPart = (currentPart + 1) % parts.Length;
         }
+    }
+
+    void OnCollisionExit(Collision col) {
+
+        // Remove the GameObject collided with from the list.
+        currentCollisions.Remove(col.gameObject);
     }
 }

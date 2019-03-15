@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4262934152495386537}
   m_Layer: 0
-  m_Name: Table
+  m_Name: Conveyor Belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 4230616321653644822}
   m_Layer: 0
   m_Name: TableTop
-  m_TagString: Untagged
+  m_TagString: Conveyor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
