@@ -4756,6 +4756,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2038779337}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2046316157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4450523788385785196, guid: af553a6928d030640bfe971c7822a9ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 531754049}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2046316162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046316157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713a34df68c23f647ac1bedca471663f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toy: {fileID: 1980290098035503974, guid: b941a6af7dcb8374f8c592b2936c8cbf, type: 3}
+  numberOfColorsRequired: 4
+  numberOfToysRequired: 1
 --- !u!1 &2066005941 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6692911216740158515, guid: 86ba224404af690409b71239dcbc3a43,
