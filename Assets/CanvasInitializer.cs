@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonCanvasInitializer : MonoBehaviour
+public class CanvasInitializer : MonoBehaviour
 {
 
     public Canvas canvas;
