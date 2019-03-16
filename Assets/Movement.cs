@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
         if (lTrigger > 0) {
             Vector3 direction = leftController.transform.forward;
             direction.y = 0;
-            this.transform.Translate(direction * lTrigger * 0.3f);
+            this.transform.Translate(direction * lTrigger * 0.3f, Space.World);
             
             //Head Bobbing
             //Vector3 pos = this.transform.position;
