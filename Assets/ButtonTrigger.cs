@@ -8,7 +8,7 @@ public class ButtonTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject.Find("MachineInputField").GetComponent<InputField>().text = "Machine Status: Off";
     }
 
     // Update is called once per frame
@@ -19,35 +19,45 @@ public class ButtonTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject textfield = GameObject.Find("KeypadInputField");
-
-        //GameObject.Find("KeypadInputField").GetComponent<InputField>().text = other.gameObject.name;
+        GameObject keypadInputField = GameObject.Find("KeypadInputField");
+        GameObject machineInputField = GameObject.Find("MachineInputField");
+        
         string parentName = other.gameObject.transform.parent.gameObject.name;
-        int textLength = textfield.GetComponent<InputField>().text.Length;
+        int keypadTextlength = keypadInputField.GetComponent<InputField>().text.Length;
 
-        //other.gameObject.transform.parent.gameObject.name
-        //Debug.Log("Button " + parentName + "pressed.");
 
         if (int.TryParse(parentName, out int result))
         {
-            textfield.GetComponent<InputField>().text += result;
+            keypadInputField.GetComponent<InputField>().text += result;
         }
         else
         {
-            //Debug.Log(parentName);
-            if(parentName.Equals("Backspace") && textLength > 0)
+            if(parentName.Equals("Backspace") && keypadTextlength > 0)
             {
-                textfield.GetComponent<InputField>().text = textfield.GetComponent<InputField>().text.Remove(textLength - 1, 1);
+                keypadInputField.GetComponent<InputField>().text = keypadInputField.GetComponent<InputField>().text.Remove(keypadTextlength - 1, 1);
                 Debug.Log("backspace");
             }
-            else if(parentName.Equals("Enter") && textLength > 0)
+            else if(parentName.Equals("Enter") && keypadTextlength > 0)
             {
 
-                int number = int.Parse(textfield.GetComponent<InputField>().text);
-                textfield.GetComponent<InputField>().text = string.Empty;
+                int number = int.Parse(keypadInputField.GetComponent<InputField>().text);
+                keypadInputField.GetComponent<InputField>().text = string.Empty;
             }
+
+            // Machine Menu
+            if (parentName.Equals("On"))
+            {
+                machineInputField.GetComponent<InputField>().text = "Machine Status: On";
+            }
+            else if (parentName.Equals("Off"))
+            {
+                machineInputField.GetComponent<InputField>().text = "Machine Status: Off";
+            }
+            else if (parentName.Equals("Auto"))
+            {
+                machineInputField.GetComponent<InputField>().text = "Machine Status: Auto";
+            }
+
         }
-        //GameObject.Find("KeypadInputField").GetComponent<InputField>().text
-        //int.TryParse()
     }
 }
