@@ -23,11 +23,15 @@ public class MachineEntrance : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        parts.Add(other.gameObject.transform.parent.gameObject.name);
+        GameObject obj = other.gameObject;
+
+        GameObject parentobj = obj.transform.parent.gameObject;
+        Debug.Log(parentobj);
+        Debug.Log(obj.transform);
+        parts.Add(parentobj.name);
 
         updateListDisplay();
-        Destroy(other.gameObject);
+        Destroy(other.gameObject.transform.parent.gameObject);
     }
 
     public List<string> getPartsList()

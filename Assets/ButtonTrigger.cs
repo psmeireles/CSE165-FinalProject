@@ -48,14 +48,19 @@ public class ButtonTrigger : MonoBehaviour
             if (parentName.Equals("On"))
             {
                 machineInputField.GetComponent<InputField>().text = "Machine Status: On";
+                GameObject.Find("ToyMachine").GetComponent<MachineController>().setMachineStatus(1);
             }
             else if (parentName.Equals("Off"))
             {
                 machineInputField.GetComponent<InputField>().text = "Machine Status: Off";
+                GameObject.Find("ToyMachine").GetComponent<MachineController>().setMachineStatus(0);
+
             }
             else if (parentName.Equals("Auto"))
             {
                 machineInputField.GetComponent<InputField>().text = "Machine Status: Auto";
+                GameObject.Find("ToyMachine").GetComponent<MachineController>().setMachineStatus(2);
+
             }
             else if (parentName.Equals("ResetParts"))
             {
