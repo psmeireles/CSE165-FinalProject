@@ -57,6 +57,14 @@ public class ButtonTrigger : MonoBehaviour
             {
                 machineInputField.GetComponent<InputField>().text = "Machine Status: Auto";
             }
+            else if (parentName.Equals("ResetParts"))
+            {
+                GameObject machineEntrance = GameObject.Find("MachineEntrance");
+                MachineEntrance machineEntrance_instance = machineEntrance.GetComponentInChildren<MachineEntrance>();
+                machineEntrance_instance.getPartsList().Clear();
+                machineEntrance_instance.updateListDisplay();
+
+            }
 
         }
     }
