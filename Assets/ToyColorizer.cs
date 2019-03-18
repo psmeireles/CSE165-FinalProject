@@ -7,18 +7,24 @@ public class ToyColorizer : MonoBehaviour
     int currentPart;
     MeshRenderer[] parts;
     List<GameObject> currentCollisions = new List<GameObject>();
+    float warningTime;
+    bool warned;
 
     // Start is called before the first frame update
     void Start()
     {
         parts = this.gameObject.GetComponentsInChildren<MeshRenderer>();
         currentPart = 0;
+        warned = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(warned && Time.time - warningTime > 3) {
+            warned = false;
+            GameManager.warning.text = string.Empty;
+        }
     }
 
     private void OnCollisionEnter(Collision collision) {
@@ -36,6 +42,11 @@ public class ToyColorizer : MonoBehaviour
         if (colorable && collision.gameObject.tag == "Bullet") {
             parts[currentPart].material = collision.gameObject.GetComponent<MeshRenderer>().material;
             currentPart = (currentPart + 1) % parts.Length;
+        }
+        else if(collision.gameObject.tag == "Bullet" && !colorable) {
+            GameManager.warning.text = "You can only colorize a toy if it's touching the conveyor belt!";
+            warned = true;
+            warningTime = Time.time;
         }
     }
 

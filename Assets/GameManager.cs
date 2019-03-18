@@ -7,13 +7,17 @@ public class GameManager : MonoBehaviour
 {
     public Text hudText;
     public Text timer;
+    public static Text warning;
     float startTime;
     bool finished;
+
     // Start is called before the first frame update
     void Start()
     {
         startTime = Time.time;
         finished = false;
+        warning = GameObject.Find("Warning").GetComponent<Text>();
+        warning.text = string.Empty;
     }
 
     // Update is called once per frame
