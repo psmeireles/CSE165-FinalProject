@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Toy
   - Conveyor
+  - Toy1
   layers:
   - Default
   - TransparentFX
