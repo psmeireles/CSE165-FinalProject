@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FinishedToysTable : MonoBehaviour
 {
-    static int remainingTables = 0;
+    public static int remainingTables = 0;
     public GameObject toy;
     public int numberOfColorsRequired;
     public int numberOfToysRequired;
