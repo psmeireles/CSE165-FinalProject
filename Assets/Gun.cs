@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     public GameObject leftHand;
     public GameObject bullet;
     public GameObject correspondingGun;
+    AudioSource gunSound;
     float projSpeed;
     static Gun currentGun;
 
@@ -17,6 +18,7 @@ public class Gun : MonoBehaviour
     {
         correspondingGun.GetComponent<MeshRenderer>().enabled = false;
         projSpeed = 3000;
+        gunSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -60,6 +62,7 @@ public class Gun : MonoBehaviour
 
         if(currentGun == this) {
             if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger)){
+                AudioSource.PlayClipAtPoint(gunSound.clip, currentGun.correspondingGun.transform.position);
                 GameObject projectile = GameObject.Instantiate(bullet, this.correspondingGun.transform.position, this.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(this.correspondingGun.transform.forward * projSpeed);
             }
