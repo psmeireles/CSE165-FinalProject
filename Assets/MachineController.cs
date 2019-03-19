@@ -25,7 +25,7 @@ public class MachineController : MonoBehaviour
         {
             if(numberOfCopies > 0)
             {
-                if(Time.time - startTime > delayBetweenCopies)
+                if(Time.time - startTime > delayBetweenCopiesinSeconds)
                 {
                     checkPartsList();
                     numberOfCopies--;
