@@ -9,6 +9,7 @@ public class ToyColorizer : MonoBehaviour
     List<GameObject> currentCollisions = new List<GameObject>();
     float warningTime;
     bool warned;
+    AudioSource hitSound;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class ToyColorizer : MonoBehaviour
         parts = this.gameObject.GetComponentsInChildren<MeshRenderer>();
         currentPart = 0;
         warned = false;
+        hitSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,7 @@ public class ToyColorizer : MonoBehaviour
         }
 
         if (colorable && collision.gameObject.tag == "Bullet") {
+            hitSound.Play();
             parts[currentPart].material = collision.gameObject.GetComponent<MeshRenderer>().material;
             currentPart = (currentPart + 1) % parts.Length;
         }
