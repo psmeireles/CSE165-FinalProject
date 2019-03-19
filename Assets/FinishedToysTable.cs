@@ -9,11 +9,13 @@ public class FinishedToysTable : MonoBehaviour
     public int numberOfColorsRequired;
     public int numberOfToysRequired;
     private List<GameObject> correctToys;
+    AudioSource correctSound;
     // Start is called before the first frame update
     void Start()
     {
         remainingTables++;
         correctToys = new List<GameObject>();
+        correctSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,6 +45,7 @@ public class FinishedToysTable : MonoBehaviour
                     }
                 }
                 correctToys.Add(obj);
+                correctSound.Play();
             }
         }
 
