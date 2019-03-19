@@ -10,6 +10,7 @@ public class FinishedToysTable : MonoBehaviour
     public int numberOfToysRequired;
     private List<GameObject> correctToys;
     AudioSource correctSound;
+    public AudioClip completeTableSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,7 @@ public class FinishedToysTable : MonoBehaviour
                     numberOfToysRequired--;
                     if (numberOfToysRequired == 0) {
                         remainingTables--;
+                        AudioSource.PlayClipAtPoint(completeTableSound, this.transform.position);
                     }
                 }
                 correctToys.Add(obj);

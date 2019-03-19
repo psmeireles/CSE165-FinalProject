@@ -94,6 +94,7 @@ MonoBehaviour:
   toy: {fileID: 0}
   numberOfColorsRequired: 0
   numberOfToysRequired: 0
+  completeTableSound: {fileID: 8300000, guid: 612a6438ec9b2f447aadaa050750b69f, type: 3}
 --- !u!82 &9073011495809334159
 AudioSource:
   m_ObjectHideFlags: 0
@@ -104,7 +105,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 30d0f0eb954b2ae4dada8e6b5a99b7a4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: aeab74d19b8498a4ca96f566446e7768, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
