@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class ButtonTrigger : MonoBehaviour
 {
+    AudioSource buttonSound;
     // Start is called before the first frame update
     void Start()
     {
         GameObject.Find("MachineInputField").GetComponent<InputField>().text = "Machine Status: Off";
+        buttonSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class ButtonTrigger : MonoBehaviour
         
         string parentName = other.gameObject.transform.parent.gameObject.name;
         int keypadTextlength = keypadInputField.GetComponent<InputField>().text.Length;
-
+        buttonSound.Play();
 
         if (int.TryParse(parentName, out int result))
         {
