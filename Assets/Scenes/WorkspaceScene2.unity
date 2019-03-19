@@ -2539,7 +2539,7 @@ PrefabInstance:
     - target: {fileID: 1274077794006621264, guid: b941a6af7dcb8374f8c592b2936c8cbf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1267333
+      value: 2.137
       objectReference: {fileID: 0}
     - target: {fileID: 1274077794006621264, guid: b941a6af7dcb8374f8c592b2936c8cbf,
         type: 3}
@@ -5942,7 +5942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toy: {fileID: 1980290098035503974, guid: b941a6af7dcb8374f8c592b2936c8cbf, type: 3}
-  spawnLocation: {x: 26.61, y: 2.616, z: -10.842}
+  spawnLocation: {x: 26.61, y: 2.137, z: -11}
   numberOfCopies: 0
   delayBetweenCopiesinSeconds: 3
 --- !u!1 &1753675362
