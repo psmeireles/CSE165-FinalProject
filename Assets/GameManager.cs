@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Text hudText;
     public Text timer;
     public static Text warning;
+    public GameObject[] toys;
     float startTime;
     bool finished;
 
@@ -26,16 +27,19 @@ public class GameManager : MonoBehaviour
         while ((line = reader.ReadLine()) != null) {
             string[] items = line.Split(' ');
             string tableName = "Table " + items[0];
-            string toyName = items[1];
+            int toyNumber = int.Parse(items[1][items[1].Length-1].ToString());
             int requiredColors = int.Parse(items[2]);
             int requiredQuantity = int.Parse(items[3].Split('\n')[0]);
 
-            GameObject toy = GameObject.Find(toyName);
+            GameObject toy = toys[toyNumber-1];
             FinishedToysTable table1 = GameObject.Find(tableName).GetComponentInChildren<FinishedToysTable>();
 
             table1.toy = toy;
             table1.numberOfColorsRequired = requiredColors;
             table1.numberOfToysRequired = requiredQuantity;
+            if(requiredQuantity == 0) {
+                FinishedToysTable.remainingTables--;
+            }
         }
     }
 
