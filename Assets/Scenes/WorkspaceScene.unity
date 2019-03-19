@@ -272,14 +272,14 @@ Transform:
   m_Children:
   - {fileID: 2097255054}
   - {fileID: 341187021}
+  - {fileID: 1522200999}
+  - {fileID: 2055945102}
   - {fileID: 1350118441}
   - {fileID: 757816121}
   - {fileID: 1450493692}
   - {fileID: 906257918}
   - {fileID: 862827238}
-  - {fileID: 1522200999}
   - {fileID: 1733685382}
-  - {fileID: 2055945102}
   m_Father: {fileID: 1673262135}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6058,7 +6058,7 @@ Transform:
   - {fileID: 1849831875}
   - {fileID: 1472901379}
   m_Father: {fileID: 107556367}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1589326217
 PrefabInstance:
@@ -7893,7 +7893,7 @@ Transform:
   - {fileID: 599419368}
   - {fileID: 1485256524}
   m_Father: {fileID: 107556367}
-  m_RootOrder: 9
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2055945103
 MonoBehaviour:
@@ -7909,6 +7909,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toy: {fileID: 1980290098035503974, guid: b941a6af7dcb8374f8c592b2936c8cbf, type: 3}
   spawnLocation: {x: 26.61, y: 2.616, z: -10.842}
+  numberOfCopies: 0
+  delayBetweenCopiesinSeconds: 0
 --- !u!1001 &2080618111
 PrefabInstance:
   m_ObjectHideFlags: 0
