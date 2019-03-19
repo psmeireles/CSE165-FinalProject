@@ -46,7 +46,7 @@ public class ToyColorizer : MonoBehaviour
             parts[currentPart].material = collision.gameObject.GetComponent<MeshRenderer>().material;
             currentPart = (currentPart + 1) % parts.Length;
         }
-        else if(collision.gameObject.tag == "Bullet" && !colorable) {
+        else if(collision.gameObject.tag == "Bullet" && !colorable && GameManager.warning.text == string.Empty) {
             GameManager.warning.text = "You can only colorize a toy if it's touching the conveyor belt!";
             warned = true;
             warningTime = Time.time;
