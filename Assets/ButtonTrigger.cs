@@ -41,6 +41,8 @@ public class ButtonTrigger : MonoBehaviour
             {
 
                 int number = int.Parse(keypadInputField.GetComponent<InputField>().text);
+
+                GameObject.Find("ToyMachine").GetComponent<MachineController>().numberOfCopies = number;
                 keypadInputField.GetComponent<InputField>().text = string.Empty;
             }
 

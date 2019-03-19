@@ -25,13 +25,17 @@ public class MachineEntrance : MonoBehaviour
     {
         GameObject obj = other.gameObject;
 
-        GameObject parentobj = obj.transform.parent.gameObject;
-        Debug.Log(parentobj);
-        Debug.Log(obj.transform);
-        parts.Add(parentobj.name);
+        //GameObject parentobj = obj.transform.parent.gameObject;
+        //Debug.Log(parentobj);
+        //Debug.Log(obj.transform);
+        //parts.Add(parentobj.name);
+
+        parts.Add(obj.name);
 
         updateListDisplay();
-        Destroy(other.gameObject.transform.parent.gameObject);
+        //Destroy(other.gameObject.transform.parent.gameObject);
+
+        Destroy(other.gameObject);
     }
 
     public List<string> getPartsList()
