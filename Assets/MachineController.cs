@@ -7,7 +7,7 @@ public class MachineController : MonoBehaviour
     public GameObject toy;
     public Vector3 spawnLocation;
     public int numberOfCopies;
-    public int delayBetweenCopies;
+    public int delayBetweenCopiesinSeconds;
 
     private float startTime;
     private int machineStatus;
