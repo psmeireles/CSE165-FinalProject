@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     public GameObject leftHand;
     public GameObject bullet;
     public GameObject correspondingGun;
+    public AudioClip reloadSound;
     AudioSource gunSound;
     float projSpeed;
     static Gun currentGun;
@@ -35,6 +36,7 @@ public class Gun : MonoBehaviour
                 if(currentGun != this) {
                     currentGun = this;
                     this.correspondingGun.GetComponent<MeshRenderer>().enabled = true;
+                    AudioSource.PlayClipAtPoint(reloadSound, currentGun.correspondingGun.transform.position);
                 }
                 else {
                     currentGun = null;
@@ -53,6 +55,7 @@ public class Gun : MonoBehaviour
                 if (currentGun != this) {
                     currentGun = this;
                     this.correspondingGun.GetComponent<MeshRenderer>().enabled = true;
+                    AudioSource.PlayClipAtPoint(reloadSound, currentGun.correspondingGun.transform.position);
                 }
                 else {
                     currentGun = null;

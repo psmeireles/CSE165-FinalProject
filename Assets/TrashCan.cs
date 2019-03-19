@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class TrashCan : MonoBehaviour
 {
+    AudioSource trashSound;
     // Start is called before the first frame update
     void Start()
     {
-        
+        trashSound = GetComponent<AudioSource>();   
     }
 
     // Update is called once per frame
@@ -17,6 +18,7 @@ public class TrashCan : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+        trashSound.Play();
         Destroy(other.gameObject);
     }
 }
