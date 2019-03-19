@@ -589,6 +589,7 @@ MonoBehaviour:
   leftHand: {fileID: 829968094}
   bullet: {fileID: 7450998748844383286, guid: d9c308e16e563a541a0de6c24c1a782a, type: 3}
   correspondingGun: {fileID: 2066005941}
+  reloadSound: {fileID: 8300000, guid: d5b4810cea368c348a069b60cf0711c6, type: 3}
 --- !u!1001 &238032421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1062,6 +1063,7 @@ MonoBehaviour:
   leftHand: {fileID: 829968094}
   bullet: {fileID: 6947492779472542828, guid: c052566d565a99448901233495c0b9c8, type: 3}
   correspondingGun: {fileID: 2134049677}
+  reloadSound: {fileID: 8300000, guid: d5b4810cea368c348a069b60cf0711c6, type: 3}
 --- !u!1001 &304394386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1339,6 +1341,7 @@ MonoBehaviour:
   leftHand: {fileID: 829968094}
   bullet: {fileID: 2496444994381232111, guid: 01ef2fc8d8265ee4f8bec9bc6ffce983, type: 3}
   correspondingGun: {fileID: 318660353}
+  reloadSound: {fileID: 8300000, guid: d5b4810cea368c348a069b60cf0711c6, type: 3}
 --- !u!1 &318660353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7784237693144470745, guid: 847f2d1f766c17c40b79ec116ff949e8,
@@ -4245,6 +4248,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8721764130422238862, guid: 015c4abb7e58fe84b8c0625c21364cad,
+        type: 3}
+      propertyPath: m_Name
+      value: ToyPart1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8721764130422238862, guid: 015c4abb7e58fe84b8c0625c21364cad,
+        type: 3}
+      propertyPath: m_TagString
+      value: ToyPart
+      objectReference: {fileID: 0}
     - target: {fileID: 424449457170997184, guid: 015c4abb7e58fe84b8c0625c21364cad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4299,16 +4312,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8721764130422238862, guid: 015c4abb7e58fe84b8c0625c21364cad,
-        type: 3}
-      propertyPath: m_Name
-      value: ToyPart1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8721764130422238862, guid: 015c4abb7e58fe84b8c0625c21364cad,
-        type: 3}
-      propertyPath: m_TagString
-      value: ToyPart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 015c4abb7e58fe84b8c0625c21364cad, type: 3}
@@ -7405,5 +7408,10 @@ PrefabInstance:
       propertyPath: correspondingGun
       value: 
       objectReference: {fileID: 1527111870}
+    - target: {fileID: 3935483536285059831, guid: d53e6287f4156ae4883a477f378618c1,
+        type: 3}
+      propertyPath: reloadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d5b4810cea368c348a069b60cf0711c6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d53e6287f4156ae4883a477f378618c1, type: 3}
