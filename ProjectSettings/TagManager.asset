@@ -9,6 +9,7 @@ TagManager:
   - Toy
   - Conveyor
   - Toy1
+  - Button
   layers:
   - Default
   - TransparentFX
