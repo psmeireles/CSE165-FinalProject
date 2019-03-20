@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2138566303892554932}
   - component: {fileID: 6120479794349011542}
   m_Layer: 0
-  m_Name: ToyPart3
-  m_TagString: Untagged
+  m_Name: ToyPartC
+  m_TagString: ToyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

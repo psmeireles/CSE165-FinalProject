@@ -381,8 +381,8 @@ GameObject:
   - component: {fileID: 6528974636140608794}
   - component: {fileID: 6528974636140608796}
   m_Layer: 0
-  m_Name: ToyPart1-Grababble
-  m_TagString: Untagged
+  m_Name: ToyPartA-Grabbable
+  m_TagString: ToyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
