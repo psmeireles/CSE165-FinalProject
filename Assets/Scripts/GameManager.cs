@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
         finished = false;
         warning = GameObject.Find("Warning").GetComponent<Text>();
         warning.text = string.Empty;
-        LeftHandButton.tableRequirements = string.Empty;
+        ObjectiveButton.tableRequirements = string.Empty;
+        RecipesButton.recipes = string.Empty;
 
         StreamReader reader = File.OpenText("Assets/" + stageFile.name + ".txt");
         string line;
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
                 FinishedToysTable.remainingTables--;
             }
 
-            LeftHandButton.tableRequirements += string.Format("Table {0}: {1} {2} with {3} different colors\r\n",
+            ObjectiveButton.tableRequirements += string.Format("Table {0}: {1} {2} with {3} different colors\r\n",
                 items[0], requiredQuantity, items[1], requiredColors);
         }
 
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
             string[] items = line.Split(' ');
 
             GameObject.Find("ToyMachine").GetComponent<MachineController>().addToyRecipe(new ToyRecipe(items[0], int.Parse(items[1]), int.Parse(items[2]), int.Parse(items[3].Split('\n')[0])));
+            RecipesButton.recipes += string.Format("{0}: {1}A, {2}B, {3}C\n", items[0], items[1], items[2], items[3]);
 
         }
     }

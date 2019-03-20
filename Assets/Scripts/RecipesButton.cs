@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftHandButton : MonoBehaviour
+public class RecipesButton : MonoBehaviour
 {
     public Transform rightHand;
     AudioSource buttonSound;
-    public static string tableRequirements;
+    public static string recipes;
     float warningTime;
     bool warned;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         buttonSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (warned && Time.time - warningTime > 5) {
             warned = false;
             GameManager.warning.text = string.Empty;
@@ -25,10 +23,10 @@ public class LeftHandButton : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if(Vector3.Distance(this.transform.position, rightHand.position) < 0.1) {
+        if (Vector3.Distance(this.transform.position, rightHand.position) < 0.1) {
             buttonSound.Play();
 
-            GameManager.warning.text = tableRequirements;
+            GameManager.warning.text = recipes;
             warned = true;
             warningTime = Time.time;
         }
