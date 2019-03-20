@@ -19,14 +19,14 @@ public class GrabToyParts : MonoBehaviour
         if (Vector3.Distance(transform.position, rightHand.transform.position) < 0.4) {
             bool rightHandGrab = OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger);
             if (rightHandGrab) {
-                GameObject.Instantiate(grababbleObj);
+                GameObject.Instantiate(grababbleObj, this.transform.position, this.transform.rotation);
             }
         }
 
         if (Vector3.Distance(transform.position, leftHand.transform.position) < 0.4) {
             bool leftHandGrab = OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger);
             if (leftHandGrab) {
-                GameObject.Instantiate(grababbleObj);
+                GameObject.Instantiate(grababbleObj, this.transform.position, this.transform.rotation);
             }
         }
     }
