@@ -37,7 +37,7 @@ public class ToyRecipe
         return cCount - C_parts;
     }
 
-    public void initializeToy(GameObject obj)
+    public void initializeToyObj(GameObject obj)
     {
         toy = obj;
     }

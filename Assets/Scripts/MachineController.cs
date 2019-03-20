@@ -7,7 +7,6 @@ public class MachineController : MonoBehaviour
 {
     struct QueueItem
     {
-
         string name;
         int count;
         int toyNum;
@@ -18,12 +17,34 @@ public class MachineController : MonoBehaviour
             count = c;
             toyNum = num;
         }
+
+        public int getCount()
+        {
+            return count;
+        }
+
+        public int getToyNum()
+        {
+            return toyNum;
+
+        }
+
+        public string getToyName()
+        {
+            return name;
+        }
+
+        public void decrementCount()
+        {
+            toyNum--;
+        }
     }
     public GameObject toy1;
     public GameObject toy2;
     public GameObject toy3;
     public Vector3 toySpawnLocation;
-    public Text partsList;
+    public Text partsListText;
+    public Text machineQueueText;
     public int delayBetweenCopiesinSeconds;
     public Transform machine;
 
@@ -33,11 +54,13 @@ public class MachineController : MonoBehaviour
     private int numberOfCopies;
 
     private int []toyPartsCounter;
-    private int toynum = 0;
+    private int maxToys = 0;
 
     private List<ToyRecipe> toyRecipes;
     private List<QueueItem> machineQueue;
     private AudioSource machineSound;
+    private string currBuildingToy;
+    private int currBuildingToyCount;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +72,8 @@ public class MachineController : MonoBehaviour
         
         toyPartsCounter = new int[3];
         machineSound = GetComponent<AudioSource>();
+        currBuildingToy = "";
+        currBuildingToyCount = -1;
     }
 
     // Update is called once per frame
@@ -59,32 +84,46 @@ public class MachineController : MonoBehaviour
         {
             if(machineStatus == 1) // status = on
             {
-                if (machineQueue.Count > 0)
-                {
-                    buildToy();
-                }
+                
             }
 
             if(machineStatus == 2) // status = auto
             {
-                if(machineQueue.Count > 0)
+
+            }
+
+            if (machineQueue.Count > 0)
+            {
+                // Builds the first toy in the queue
+                QueueItem currentToy = machineQueue[0];
+                currBuildingToy = currentToy.getToyName();
+                currBuildingToyCount = currentToy.getCount();
+                if (currentToy.getCount() > 0)
                 {
-                    buildToy();
+                    buildToy(currentToy);
+                }
+                else // pops the toy when it is done building
+                {
+
+                    machineQueue.RemoveAt(0);
+                    currBuildingToy = "";
+                    currBuildingToyCount = -1;
                 }
             }
         }
     }
 
-    private void buildToy()
+    private void buildToy(QueueItem toy)
     {
-        if (numberOfCopies > 0)
+        if (Time.time - startTime > delayBetweenCopiesinSeconds)
         {
-            if (Time.time - startTime > delayBetweenCopiesinSeconds)
-            {
-                checkToyParts();
-                numberOfCopies--;
-                startTime = Time.time;
-            }
+            GameObject newToy = GameObject.Instantiate(toyRecipes[toy.getToyNum()].getToy());
+            newToy.transform.Translate(toySpawnLocation, Space.World);
+
+            toy.decrementCount();
+            //checkToyParts();
+            //numberOfCopies--;
+            startTime = Time.time;
         }
     }
     public void setMachineStatus(int status)
@@ -118,9 +157,28 @@ public class MachineController : MonoBehaviour
             partsText += s + "\n";
         }
 
-        partsList.text = "Current Parts:\n" + partsText;
+        partsListText.text = "Current Parts:\n" + partsText;
     }
 
+    public void updateMachineQueue()
+    {
+        string machineText = "Building: " + currBuildingToy + "\n";
+
+        if (currBuildingToyCount > -1)
+        {
+            machineText += "Amount: " + currBuildingToyCount + "\n\n";
+        }
+        else
+        {
+            machineText += "Amount: \n\n";
+        }
+
+        machineText += "Queue:\n";
+        foreach(QueueItem item in machineQueue)
+        {
+            machineText += item.getToyName() + "\t\t\t" + item.getToyNum() + "\n";
+        }
+    }
     public void setNumberOfCopies(int copies)
     {
         numberOfCopies = copies;
@@ -133,27 +191,28 @@ public class MachineController : MonoBehaviour
             
             toyRecipes = new List<ToyRecipe>();
         }
-        switch(toynum)
+        switch(maxToys)
         {
             case 0:
-                recipe.initializeToy(toy1);
+                recipe.initializeToyObj(toy1);
                 break;
             case 1:
 
-                recipe.initializeToy(toy2);
+                recipe.initializeToyObj(toy2);
                 break;
             case 2:
 
-                recipe.initializeToy(toy3);
+                recipe.initializeToyObj(toy3);
                 break;
         }
         toyRecipes.Add(recipe);
-        toynum++;
+        maxToys++;
     }
 
     public void addToQueue(string name, int count, int toyNum)
     {
         machineQueue.Add(new QueueItem(name, count, toyNum));
+        updateMachineQueue();
     }
     // Adds a toy part to the List object
     public void addToyPart(string part)

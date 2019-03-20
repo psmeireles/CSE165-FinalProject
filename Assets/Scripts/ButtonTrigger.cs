@@ -47,8 +47,8 @@ public class ButtonTrigger : MonoBehaviour
                 int count = int.Parse(keypadInputField.GetComponent<InputField>().text);
                 string name = toyNameField.GetComponent<InputField>().text;
                 int toyNum = int.Parse(name.Substring(name.Length - 1));
-                Debug.Log(toyNum);
-                machineController.addToQueue(name, count,1);
+               
+                machineController.addToQueue(name, count, toyNum);
                 machineController.setNumberOfCopies(count);
                 keypadInputField.GetComponent<InputField>().text = string.Empty;
             }

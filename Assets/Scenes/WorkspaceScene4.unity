@@ -6713,7 +6713,8 @@ MonoBehaviour:
   toy2: {fileID: 5445063693140621403, guid: 67bdb2324a26e284c8b59840a8d72473, type: 3}
   toy3: {fileID: 8476008947474526332, guid: a95c005f67c4d384c87c66f1fba7dc92, type: 3}
   toySpawnLocation: {x: 26.5, y: 2.137, z: -11}
-  partsList: {fileID: 387264132}
+  partsListText: {fileID: 0}
+  machineQueueText: {fileID: 0}
   delayBetweenCopiesinSeconds: 3
   machine: {fileID: 2115322477}
 --- !u!82 &1048028988
@@ -12721,7 +12722,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Building: Toy1\nAmount: 25\n\nQueue:\nToy3\t\t\t10\n"
+  m_Text: "Building: \nAmount: \n\nQueue:\n"
 --- !u!222 &1893309058
 CanvasRenderer:
   m_ObjectHideFlags: 0
