@@ -5671,7 +5671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHand: {fileID: 1702443171}
   leftHand: {fileID: 405135251}
-  grababbleObj: {fileID: 6528974636140608793, guid: 46e3bd7a6ecff144999c2718e9349062,
+  grababbleObj: {fileID: 6528974636140608793, guid: 619a010aa6ce3a544b66e78029632fad,
     type: 3}
 --- !u!54 &1208811508
 Rigidbody:
@@ -8894,9 +8894,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5357b4d06d824478c94cf0b35eda9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toy1: {fileID: 0}
-  toy2: {fileID: 0}
-  toy3: {fileID: 0}
+  toy1: {fileID: 1980290098035503974, guid: b941a6af7dcb8374f8c592b2936c8cbf, type: 3}
+  toy2: {fileID: 5445063693140621403, guid: 67bdb2324a26e284c8b59840a8d72473, type: 3}
+  toy3: {fileID: 8476008947474526332, guid: a95c005f67c4d384c87c66f1fba7dc92, type: 3}
   toySpawnLocation: {x: 26.5, y: 2.137, z: -11}
   partsList: {fileID: 629722191}
   delayBetweenCopiesinSeconds: 3
@@ -9705,6 +9705,11 @@ PrefabInstance:
       propertyPath: leftHand
       value: 
       objectReference: {fileID: 405135251}
+    - target: {fileID: 845112791, guid: f326069b5b97d2d4fbb978de9bdab3de, type: 3}
+      propertyPath: grababbleObj
+      value: 
+      objectReference: {fileID: 3779946298312628230, guid: 7cc5239a99174f94cb387b11aa5e3bb8,
+        type: 3}
     - target: {fileID: 520941885183951661, guid: f326069b5b97d2d4fbb978de9bdab3de,
         type: 3}
       propertyPath: m_LocalPosition.x

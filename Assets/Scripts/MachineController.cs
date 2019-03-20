@@ -29,7 +29,7 @@ public class MachineController : MonoBehaviour
         startTime = Time.time;
         toyParts = new List<string>();
 
-        toyRecipes = new List<ToyRecipe>();
+        //toyRecipes = new List<ToyRecipe>();
         toyPartsCounter = new int[3];
 
     }
@@ -122,13 +122,13 @@ public class MachineController : MonoBehaviour
 
         switch (part)
         {
-            case "ToyPart1":
+            case "ToyPartA":
                 toyPartsCounter[0]++;
                 break;
-            case "ToyPart2":
+            case "ToyPartB":
                 toyPartsCounter[1]++;
                 break;
-            case "ToyPart3":
+            case "ToyPartC":
                 toyPartsCounter[2]++;
                 break;
         }

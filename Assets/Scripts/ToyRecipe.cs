@@ -21,7 +21,7 @@ public class ToyRecipe
 
     public bool hasEnoughParts(int aCount, int bCount, int cCount)
     {
-        return A_parts == aCount && B_parts == bCount && C_parts == cCount;
+        return A_parts <= aCount && B_parts <= bCount && C_parts <= cCount;
     }
 
     public int subtractAParts(int aCount)
