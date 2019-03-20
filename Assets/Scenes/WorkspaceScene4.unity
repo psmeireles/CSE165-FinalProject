@@ -1514,6 +1514,7 @@ MonoBehaviour:
   bullet: {fileID: 7450998748844383286, guid: d9c308e16e563a541a0de6c24c1a782a, type: 3}
   correspondingGun: {fileID: 2066005941}
   reloadSound: {fileID: 8300000, guid: d5b4810cea368c348a069b60cf0711c6, type: 3}
+  whiteMaterial: {fileID: 0}
 --- !u!1 &229830661
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,6 +2311,7 @@ MonoBehaviour:
   bullet: {fileID: 6947492779472542828, guid: c052566d565a99448901233495c0b9c8, type: 3}
   correspondingGun: {fileID: 2134049677}
   reloadSound: {fileID: 8300000, guid: d5b4810cea368c348a069b60cf0711c6, type: 3}
+  whiteMaterial: {fileID: 0}
 --- !u!1001 &303570166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2843,6 +2845,7 @@ MonoBehaviour:
   bullet: {fileID: 2496444994381232111, guid: 01ef2fc8d8265ee4f8bec9bc6ffce983, type: 3}
   correspondingGun: {fileID: 318660353}
   reloadSound: {fileID: 8300000, guid: d5b4810cea368c348a069b60cf0711c6, type: 3}
+  whiteMaterial: {fileID: 0}
 --- !u!1 &318660353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7784237693144470745, guid: 847f2d1f766c17c40b79ec116ff949e8,
@@ -6713,8 +6716,8 @@ MonoBehaviour:
   toy2: {fileID: 5445063693140621403, guid: 67bdb2324a26e284c8b59840a8d72473, type: 3}
   toy3: {fileID: 8476008947474526332, guid: a95c005f67c4d384c87c66f1fba7dc92, type: 3}
   toySpawnLocation: {x: 26.5, y: 2.137, z: -11}
-  partsListText: {fileID: 0}
-  machineQueueText: {fileID: 0}
+  partsListText: {fileID: 387264132}
+  machineQueueText: {fileID: 1893309057}
   delayBetweenCopiesinSeconds: 3
   machine: {fileID: 2115322477}
 --- !u!82 &1048028988
@@ -12664,7 +12667,7 @@ GameObject:
   - component: {fileID: 1893309058}
   - component: {fileID: 1893309057}
   m_Layer: 5
-  m_Name: Queue
+  m_Name: QueueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

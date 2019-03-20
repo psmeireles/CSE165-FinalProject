@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MachineController : MonoBehaviour
 {
-    struct QueueItem
+    class QueueItem
     {
         string name;
         int count;
@@ -36,7 +36,7 @@ public class MachineController : MonoBehaviour
 
         public void decrementCount()
         {
-            toyNum--;
+            count--;
         }
     }
     public GameObject toy1;
@@ -61,6 +61,7 @@ public class MachineController : MonoBehaviour
     private AudioSource machineSound;
     private string currBuildingToy;
     private int currBuildingToyCount;
+    private QueueItem currentToy;
 
     // Start is called before the first frame update
     void Start()
@@ -92,23 +93,29 @@ public class MachineController : MonoBehaviour
 
             }
 
-            if (machineQueue.Count > 0)
+            if (machineQueue.Count > 0 || currBuildingToyCount > 0)
             {
                 // Builds the first toy in the queue
-                QueueItem currentToy = machineQueue[0];
+                if(currBuildingToyCount <= 0)
+                {
+                    currentToy = machineQueue[0];
+                    machineQueue.RemoveAt(0);
+                }
+
                 currBuildingToy = currentToy.getToyName();
                 currBuildingToyCount = currentToy.getToyCount();
                 if (currentToy.getToyCount() > 0)
                 {
+
                     buildToy(currentToy);
                 }
                 else // pops the toy when it is done building
                 {
 
-                    machineQueue.RemoveAt(0);
                     currBuildingToy = "";
                     currBuildingToyCount = -1;
                 }
+                updateMachineQueue();
             }
         }
     }
@@ -117,12 +124,10 @@ public class MachineController : MonoBehaviour
     {
         if (Time.time - startTime > delayBetweenCopiesinSeconds)
         {
-            GameObject newToy = GameObject.Instantiate(toyRecipes[toy.getToyNum()].getToy());
+            GameObject newToy = GameObject.Instantiate(toyRecipes[toy.getToyNum()-1].getToy());
             newToy.transform.Translate(toySpawnLocation, Space.World);
 
             toy.decrementCount();
-            //checkToyParts();
-            //numberOfCopies--;
             startTime = Time.time;
         }
     }

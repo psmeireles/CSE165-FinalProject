@@ -53,6 +53,7 @@ public class ButtonTrigger : MonoBehaviour
                 machineController.addToQueue(name, count, toyNum);
                 machineController.setNumberOfCopies(count);
                 keypadInputField.GetComponent<InputField>().text = string.Empty;
+                toyNameField.GetComponent<InputField>().text = string.Empty;
             }
 
             // Machine Menu
