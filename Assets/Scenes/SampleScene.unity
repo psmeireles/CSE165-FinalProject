@@ -5687,7 +5687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageFile: {fileID: 4900000, guid: d54e1db604bdb9c468c071320b5cd30e, type: 3}
-  recipeFile: {fileID: 0}
+  recipeFile: {fileID: 4900000, guid: cacdc86f27f0bf54f92f7fa622cbf22e, type: 3}
   hudText: {fileID: 1604211267}
   timer: {fileID: 1843430944}
   toys:
@@ -7568,6 +7568,11 @@ PrefabInstance:
       propertyPath: leftHand
       value: 
       objectReference: {fileID: 405135251}
+    - target: {fileID: 1208811507, guid: 015c4abb7e58fe84b8c0625c21364cad, type: 3}
+      propertyPath: grababbleObj
+      value: 
+      objectReference: {fileID: 6528974636140608793, guid: 619a010aa6ce3a544b66e78029632fad,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 015c4abb7e58fe84b8c0625c21364cad, type: 3}
 --- !u!4 &1208811505 stripped
@@ -11702,6 +11707,11 @@ PrefabInstance:
       propertyPath: leftHand
       value: 
       objectReference: {fileID: 405135251}
+    - target: {fileID: 845112791, guid: f326069b5b97d2d4fbb978de9bdab3de, type: 3}
+      propertyPath: grababbleObj
+      value: 
+      objectReference: {fileID: 3779946298312628230, guid: 7cc5239a99174f94cb387b11aa5e3bb8,
+        type: 3}
     - target: {fileID: 520941885183951661, guid: f326069b5b97d2d4fbb978de9bdab3de,
         type: 3}
       propertyPath: m_LocalPosition.x
