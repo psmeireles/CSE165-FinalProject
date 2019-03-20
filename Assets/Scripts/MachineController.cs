@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class MachineController : MonoBehaviour
 {
-    public GameObject toy;
+    public GameObject toy1;
+    public GameObject toy2;
+    public GameObject toy3;
     public Vector3 toySpawnLocation;
     public Text partsList;
     public int delayBetweenCopiesinSeconds;
@@ -15,12 +17,21 @@ public class MachineController : MonoBehaviour
     private List<string> toyParts;
     private int numberOfCopies;
 
+    private int []toyPartsCounter;
+    private int toynum = 0;
+
+    private List<ToyRecipe> toyRecipes;
+
     // Start is called before the first frame update
     void Start()
     {
         machineStatus = 0; // 0 = off, 1 = on, 2 = auto
         startTime = Time.time;
         toyParts = new List<string>();
+
+        toyRecipes = new List<ToyRecipe>();
+        toyPartsCounter = new int[3];
+
     }
 
     // Update is called once per frame
@@ -48,12 +59,18 @@ public class MachineController : MonoBehaviour
 
     private void checkPartsList()
     {
-        
-        if(toyParts.Count > 2)
+
+        //if(toyParts.Count > 2)
+        for (int i = 0; i < toyRecipes.Count; i++)
         {
-            GameObject newToy =  GameObject.Instantiate(toy);
-            newToy.transform.Translate(toySpawnLocation, Space.World);
-            updatePartsListDisplay();
+
+
+            if (toyRecipes[i].hasEnoughParts(toyPartsCounter[0], toyPartsCounter[1], toyPartsCounter[2]))
+            {
+                GameObject newToy = GameObject.Instantiate(toyRecipes[i].getToy());
+                newToy.transform.Translate(toySpawnLocation, Space.World);
+                updatePartsListDisplay();
+            }
         }
     }
 
@@ -74,10 +91,47 @@ public class MachineController : MonoBehaviour
         numberOfCopies = copies;
     }
 
+    public void addToyRecipe(ToyRecipe recipe)
+    {
+        if(toyRecipes == null)
+        {
+            
+            toyRecipes = new List<ToyRecipe>();
+        }
+        switch(toynum)
+        {
+            case 0:
+                recipe.initializeToy(toy1);
+                break;
+            case 1:
+
+                recipe.initializeToy(toy2);
+                break;
+            case 2:
+
+                recipe.initializeToy(toy3);
+                break;
+        }
+        toyRecipes.Add(recipe);
+        toynum++;
+    }
     // Adds a toy part to the List object
     public void addToyPart(string part)
     {
         toyParts.Add(part);
+
+        switch (part)
+        {
+            case "ToyPart1":
+                toyPartsCounter[0]++;
+                break;
+            case "ToyPart2":
+                toyPartsCounter[1]++;
+                break;
+            case "ToyPart3":
+                toyPartsCounter[2]++;
+                break;
+        }
     }
 
     // Clears the list

@@ -7,13 +7,14 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
     public TextAsset stageFile;
+    public TextAsset recipeFile;
     public Text hudText;
     public Text timer;
     public static Text warning;
     public GameObject[] toys;
     float startTime;
     bool finished;
-
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +45,15 @@ public class GameManager : MonoBehaviour
 
             LeftHandButton.tableRequirements += string.Format("Table {0}: {1} {2} with {3} different colors\r\n",
                 items[0], requiredQuantity, items[1], requiredColors);
+        }
+
+        reader = File.OpenText("Assets/" + recipeFile.name + ".txt");
+        while ((line = reader.ReadLine()) != null)
+        {
+            string[] items = line.Split(' ');
+
+            GameObject.Find("ToyMachine").GetComponent<MachineController>().addToyRecipe(new ToyRecipe(items[0], int.Parse(items[1]), int.Parse(items[2]), int.Parse(items[3].Split('\n')[0])));
+
         }
     }
 

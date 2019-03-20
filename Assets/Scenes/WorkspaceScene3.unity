@@ -4554,6 +4554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageFile: {fileID: 4900000, guid: d54e1db604bdb9c468c071320b5cd30e, type: 3}
+  recipeFile: {fileID: 4900000, guid: cacdc86f27f0bf54f92f7fa622cbf22e, type: 3}
   hudText: {fileID: 1604211267}
   timer: {fileID: 1843430944}
   toys:
@@ -8893,7 +8894,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5357b4d06d824478c94cf0b35eda9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toy: {fileID: 1980290098035503974, guid: b941a6af7dcb8374f8c592b2936c8cbf, type: 3}
+  toy1: {fileID: 0}
+  toy2: {fileID: 0}
+  toy3: {fileID: 0}
   toySpawnLocation: {x: 26.5, y: 2.137, z: -11}
   partsList: {fileID: 629722191}
   delayBetweenCopiesinSeconds: 3
