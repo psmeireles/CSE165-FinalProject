@@ -11,6 +11,7 @@ public class MachineController : MonoBehaviour
     public Vector3 toySpawnLocation;
     public Text partsList;
     public int delayBetweenCopiesinSeconds;
+    public Transform machine;
 
     private float startTime;
     private int machineStatus;
@@ -21,6 +22,7 @@ public class MachineController : MonoBehaviour
     private int toynum = 0;
 
     private List<ToyRecipe> toyRecipes;
+    private AudioSource machineSound;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +33,7 @@ public class MachineController : MonoBehaviour
 
         //toyRecipes = new List<ToyRecipe>();
         toyPartsCounter = new int[3];
-
+        machineSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -67,6 +69,7 @@ public class MachineController : MonoBehaviour
 
             if (toyRecipes[i].hasEnoughParts(toyPartsCounter[0], toyPartsCounter[1], toyPartsCounter[2]))
             {
+                machineSound.Play();
                 GameObject newToy = GameObject.Instantiate(toyRecipes[i].getToy());
                 newToy.transform.Translate(toySpawnLocation, Space.World);
                 updatePartsListDisplay();

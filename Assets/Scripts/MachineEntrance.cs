@@ -9,12 +9,13 @@ public class MachineEntrance : MonoBehaviour
 
     //private List<string> parts;
     MachineController machineController;
-    
+    AudioSource machineSound;
     // Start is called before the first frame update
     void Start()
     {
         //parts = new List<string>();
         machineController = GameObject.Find("ToyMachine").GetComponent<MachineController>();
+        machineSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class MachineEntrance : MonoBehaviour
         GameObject obj = other.gameObject;
 
         //parts.Add(obj.name.Replace("-Grababble(Clone)", ""));
-
+        machineSound.Play();
         machineController.addToyPart(obj.name.Replace("-Grabbable(Clone)", ""));
         machineController.updatePartsListDisplay();
         Destroy(other.gameObject);
