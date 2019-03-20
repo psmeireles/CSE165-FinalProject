@@ -29,7 +29,7 @@ public class MachineEntrance : MonoBehaviour
 
         //parts.Add(obj.name.Replace("-Grababble(Clone)", ""));
 
-        machineController.addToyPart(obj.name.Replace("-Grababble(Clone)", ""));
+        machineController.addToyPart(obj.name.Replace("-Grabbable(Clone)", ""));
         machineController.updatePartsListDisplay();
         Destroy(other.gameObject);
     }
