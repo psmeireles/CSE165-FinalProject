@@ -1514,6 +1514,7 @@ MonoBehaviour:
   bullet: {fileID: 7450998748844383286, guid: d9c308e16e563a541a0de6c24c1a782a, type: 3}
   correspondingGun: {fileID: 2066005941}
   reloadSound: {fileID: 8300000, guid: d5b4810cea368c348a069b60cf0711c6, type: 3}
+  whiteMaterial: {fileID: 2100000, guid: 07fa12b3b98023f46a5a6542a7f795a6, type: 2}
 --- !u!1 &229830661
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,6 +2311,7 @@ MonoBehaviour:
   bullet: {fileID: 6947492779472542828, guid: c052566d565a99448901233495c0b9c8, type: 3}
   correspondingGun: {fileID: 2134049677}
   reloadSound: {fileID: 8300000, guid: d5b4810cea368c348a069b60cf0711c6, type: 3}
+  whiteMaterial: {fileID: 2100000, guid: 07fa12b3b98023f46a5a6542a7f795a6, type: 2}
 --- !u!1001 &303570166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2823,6 +2825,7 @@ MonoBehaviour:
   bullet: {fileID: 2496444994381232111, guid: 01ef2fc8d8265ee4f8bec9bc6ffce983, type: 3}
   correspondingGun: {fileID: 318660353}
   reloadSound: {fileID: 8300000, guid: d5b4810cea368c348a069b60cf0711c6, type: 3}
+  whiteMaterial: {fileID: 2100000, guid: 07fa12b3b98023f46a5a6542a7f795a6, type: 2}
 --- !u!1 &318660353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7784237693144470745, guid: 847f2d1f766c17c40b79ec116ff949e8,
@@ -2903,7 +2906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4660621310658468, guid: efe266538a8dcda4dbd04fbff7997053, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4660621310658468, guid: efe266538a8dcda4dbd04fbff7997053, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2916,6 +2919,26 @@ PrefabInstance:
     - target: {fileID: 4660621310658468, guid: efe266538a8dcda4dbd04fbff7997053, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82444679098816658, guid: efe266538a8dcda4dbd04fbff7997053,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 82444679098816658, guid: efe266538a8dcda4dbd04fbff7997053,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82444679098816658, guid: efe266538a8dcda4dbd04fbff7997053,
+        type: 3}
+      propertyPath: Spatialize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82444679098816658, guid: efe266538a8dcda4dbd04fbff7997053,
+        type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efe266538a8dcda4dbd04fbff7997053, type: 3}
@@ -14421,6 +14444,11 @@ PrefabInstance:
       propertyPath: reloadSound
       value: 
       objectReference: {fileID: 8300000, guid: d5b4810cea368c348a069b60cf0711c6, type: 3}
+    - target: {fileID: 3935483536285059831, guid: d53e6287f4156ae4883a477f378618c1,
+        type: 3}
+      propertyPath: whiteMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 07fa12b3b98023f46a5a6542a7f795a6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d53e6287f4156ae4883a477f378618c1, type: 3}
 --- !u!65 &7099536292992042357

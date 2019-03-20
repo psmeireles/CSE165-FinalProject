@@ -12,7 +12,8 @@ public class Gun : MonoBehaviour
     AudioSource gunSound;
     float projSpeed;
     static Gun currentGun;
-
+    public Material whiteMaterial;
+    Material originalMaterial;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class Gun : MonoBehaviour
         correspondingGun.GetComponent<MeshRenderer>().enabled = false;
         projSpeed = 3000;
         gunSound = GetComponent<AudioSource>();
+        originalMaterial = this.GetComponent<MeshRenderer>().material;
     }
 
     // Update is called once per frame
@@ -28,9 +30,9 @@ public class Gun : MonoBehaviour
         if (Vector3.Distance(transform.position, rightHand.transform.position) < 0.1) {
             bool rightHandGrab = OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger);
             if (rightHandGrab) {
-                this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                this.gameObject.GetComponent<MeshRenderer>().material = whiteMaterial;
                 if(currentGun != null) {
-                    currentGun.GetComponent<MeshRenderer>().enabled = true;
+                    currentGun.GetComponent<MeshRenderer>().material = currentGun.originalMaterial;
                     currentGun.correspondingGun.GetComponent<MeshRenderer>().enabled = false;
                 }
                 if(currentGun != this) {
@@ -47,9 +49,9 @@ public class Gun : MonoBehaviour
         if (Vector3.Distance(transform.position, leftHand.transform.position) < 0.1) {
             bool leftHandGrab = OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger);
             if (leftHandGrab) {
-                this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                this.gameObject.GetComponent<MeshRenderer>().material = whiteMaterial;
                 if (currentGun != null) {
-                    currentGun.GetComponent<MeshRenderer>().enabled = true;
+                    currentGun.GetComponent<MeshRenderer>().material = currentGun.originalMaterial;
                     currentGun.correspondingGun.GetComponent<MeshRenderer>().enabled = false;
                 }
                 if (currentGun != this) {
