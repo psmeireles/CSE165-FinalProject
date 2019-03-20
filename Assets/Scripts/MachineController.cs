@@ -5,6 +5,20 @@ using UnityEngine.UI;
 
 public class MachineController : MonoBehaviour
 {
+    struct QueueItem
+    {
+
+        string name;
+        int count;
+        int toyNum;
+
+        public QueueItem(string n, int c, int num)
+        {
+            name = n;
+            count = c;
+            toyNum = num;
+        }
+    }
     public GameObject toy1;
     public GameObject toy2;
     public GameObject toy3;
@@ -22,16 +36,17 @@ public class MachineController : MonoBehaviour
     private int toynum = 0;
 
     private List<ToyRecipe> toyRecipes;
+    private List<QueueItem> machineQueue;
     private AudioSource machineSound;
 
     // Start is called before the first frame update
     void Start()
     {
+        machineQueue = new List<QueueItem>();
         machineStatus = 0; // 0 = off, 1 = on, 2 = auto
         startTime = Time.time;
         toyParts = new List<string>();
-
-        //toyRecipes = new List<ToyRecipe>();
+        
         toyPartsCounter = new int[3];
         machineSound = GetComponent<AudioSource>();
     }
@@ -40,29 +55,46 @@ public class MachineController : MonoBehaviour
     void Update()
     {
 
-        if(machineStatus > 0)
+        if(machineStatus > 0) // not off
         {
-            if(numberOfCopies > 0)
+            if(machineStatus == 1) // status = on
             {
-                if(Time.time - startTime > delayBetweenCopiesinSeconds)
+                if (machineQueue.Count > 0)
                 {
-                    checkPartsList();
-                    numberOfCopies--;
-                    startTime = Time.time;
+                    buildToy();
+                }
+            }
+
+            if(machineStatus == 2) // status = auto
+            {
+                if(machineQueue.Count > 0)
+                {
+                    buildToy();
                 }
             }
         }
     }
 
+    private void buildToy()
+    {
+        if (numberOfCopies > 0)
+        {
+            if (Time.time - startTime > delayBetweenCopiesinSeconds)
+            {
+                checkToyParts();
+                numberOfCopies--;
+                startTime = Time.time;
+            }
+        }
+    }
     public void setMachineStatus(int status)
     {
         machineStatus = status;
     }
 
-    private void checkPartsList()
+    private void checkToyParts()
     {
-
-        //if(toyParts.Count > 2)
+        
         for (int i = 0; i < toyRecipes.Count; i++)
         {
 
@@ -118,6 +150,11 @@ public class MachineController : MonoBehaviour
         toyRecipes.Add(recipe);
         toynum++;
     }
+
+    public void addToQueue(string name, int count, int toyNum)
+    {
+        machineQueue.Add(new QueueItem(name, count, toyNum));
+    }
     // Adds a toy part to the List object
     public void addToyPart(string part)
     {
@@ -141,5 +178,10 @@ public class MachineController : MonoBehaviour
     public void clearToyPartsList()
     {
         toyParts.Clear();
+        for (int i = 0; i < toyPartsCounter.Length; i++)
+        {
+            toyPartsCounter[i] = 0;
+        }
+        updatePartsListDisplay();
     }
 }

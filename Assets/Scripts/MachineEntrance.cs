@@ -13,7 +13,6 @@ public class MachineEntrance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //parts = new List<string>();
         machineController = GameObject.Find("ToyMachine").GetComponent<MachineController>();
         machineSound = GetComponent<AudioSource>();
     }
@@ -27,28 +26,13 @@ public class MachineEntrance : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject obj = other.gameObject;
-
-        //parts.Add(obj.name.Replace("-Grababble(Clone)", ""));
-        machineSound.Play();
-        machineController.addToyPart(obj.name.Replace("-Grabbable(Clone)", ""));
-        machineController.updatePartsListDisplay();
-        Destroy(other.gameObject);
+        
+        if(obj.tag == "ToyPart")
+        {
+            machineSound.Play();
+            machineController.addToyPart(obj.name.Replace("-Grabbable(Clone)", ""));
+            machineController.updatePartsListDisplay();
+            Destroy(other.gameObject);
+        }
     }
-
-    //public List<string> getPartsList()
-    //{
-    //    return parts;
-    //}
-
-    //public void updateListDisplay()
-    //{
-    //    string partsText = "";
-
-    //    foreach (string s in parts)
-    //    {
-    //        partsText += s + "\n";
-    //    }
-
-    //    partsList.text = "Current Parts:\n" + partsText;
-    //}
 }

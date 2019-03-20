@@ -21,6 +21,7 @@ public class ButtonTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GameObject toyNameField = GameObject.Find("ToyNameField");
         GameObject keypadInputField = GameObject.Find("KeypadInputField");
         GameObject machineInputField = GameObject.Find("MachineInputField");
         MachineController machineController = GameObject.Find("ToyMachine").GetComponent<MachineController>();
@@ -29,21 +30,26 @@ public class ButtonTrigger : MonoBehaviour
         int keypadTextlength = keypadInputField.GetComponent<InputField>().text.Length;
         buttonSound.Play();
 
+        // Numbers on keypad
         if (int.TryParse(parentName, out int result))
         {
             keypadInputField.GetComponent<InputField>().text += result;
         }
         else
         {
+            // Keypad menu
             if(parentName.Equals("Backspace") && keypadTextlength > 0)
             {
                 keypadInputField.GetComponent<InputField>().text = keypadInputField.GetComponent<InputField>().text.Remove(keypadTextlength - 1, 1);
             }
             else if(parentName.Equals("Enter") && keypadTextlength > 0)
             {
-                int num = int.Parse(keypadInputField.GetComponent<InputField>().text);
-
-                machineController.setNumberOfCopies(num);
+                int count = int.Parse(keypadInputField.GetComponent<InputField>().text);
+                string name = toyNameField.GetComponent<InputField>().text;
+                int toyNum = int.Parse(name.Substring(name.Length - 1));
+                Debug.Log(toyNum);
+                machineController.addToQueue(name, count,1);
+                machineController.setNumberOfCopies(count);
                 keypadInputField.GetComponent<InputField>().text = string.Empty;
             }
 
@@ -66,7 +72,24 @@ public class ButtonTrigger : MonoBehaviour
             else if (parentName.Equals("ResetParts"))
             {
                 machineController.clearToyPartsList();
-                machineController.updatePartsListDisplay();
+            }
+
+            // Toy Selection Menu
+            if (parentName.Equals("Toy1"))
+            {
+                toyNameField.GetComponent<InputField>().text = "Toy 1";
+            }
+            else if (parentName.Equals("Toy2"))
+            {
+                toyNameField.GetComponent<InputField>().text = "Toy 2";
+            }
+            else if (parentName.Equals("Toy3"))
+            {
+                toyNameField.GetComponent<InputField>().text = "Toy 3";
+            }
+            else if (parentName.Equals("Toy4"))
+            {
+                
             }
         }
     }
