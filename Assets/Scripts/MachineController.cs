@@ -18,7 +18,7 @@ public class MachineController : MonoBehaviour
             toyNum = num;
         }
 
-        public int getCount()
+        public int getToyCount()
         {
             return count;
         }
@@ -97,8 +97,8 @@ public class MachineController : MonoBehaviour
                 // Builds the first toy in the queue
                 QueueItem currentToy = machineQueue[0];
                 currBuildingToy = currentToy.getToyName();
-                currBuildingToyCount = currentToy.getCount();
-                if (currentToy.getCount() > 0)
+                currBuildingToyCount = currentToy.getToyCount();
+                if (currentToy.getToyCount() > 0)
                 {
                     buildToy(currentToy);
                 }
@@ -176,8 +176,10 @@ public class MachineController : MonoBehaviour
         machineText += "Queue:\n";
         foreach(QueueItem item in machineQueue)
         {
-            machineText += item.getToyName() + "\t\t\t" + item.getToyNum() + "\n";
+            machineText += item.getToyName() + "\t\t\t" + item.getToyCount() + "\n";
         }
+
+        machineQueueText.text = machineText;
     }
     public void setNumberOfCopies(int copies)
     {
