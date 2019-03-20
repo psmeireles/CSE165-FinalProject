@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
         finished = false;
         warning = GameObject.Find("Warning").GetComponent<Text>();
         warning.text = string.Empty;
+        LeftHandButton.tableRequirements = string.Empty;
 
         StreamReader reader = File.OpenText("Assets/" + stageFile.name + ".txt");
         string line;
@@ -40,6 +41,9 @@ public class GameManager : MonoBehaviour
             if(requiredQuantity == 0) {
                 FinishedToysTable.remainingTables--;
             }
+
+            LeftHandButton.tableRequirements += string.Format("Table {0}: {1} {2} with {3} different colors\r\n",
+                items[0], requiredQuantity, items[1], requiredColors);
         }
     }
 
