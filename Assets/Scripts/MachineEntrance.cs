@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class MachineEntrance : MonoBehaviour
 {
-    public Text partsList;
+    //public Text partsList;
 
-    private List<string> parts;
-    private 
+    //private List<string> parts;
+    MachineController machineController;
+    
     // Start is called before the first frame update
     void Start()
     {
-        parts = new List<string>();
+        //parts = new List<string>();
+        machineController = GameObject.Find("ToyMachine").GetComponent<MachineController>();
     }
 
     // Update is called once per frame
@@ -25,33 +27,27 @@ public class MachineEntrance : MonoBehaviour
     {
         GameObject obj = other.gameObject;
 
-        //GameObject parentobj = obj.transform.parent.gameObject;
-        //Debug.Log(parentobj);
-        //Debug.Log(obj.transform);
-        //parts.Add(parentobj.name);
+        //parts.Add(obj.name.Replace("-Grababble(Clone)", ""));
 
-        parts.Add(obj.name);
-
-        updateListDisplay();
-        //Destroy(other.gameObject.transform.parent.gameObject);
-
+        machineController.addToyPart(obj.name.Replace("-Grababble(Clone)", ""));
+        machineController.updatePartsListDisplay();
         Destroy(other.gameObject);
     }
 
-    public List<string> getPartsList()
-    {
-        return parts;
-    }
+    //public List<string> getPartsList()
+    //{
+    //    return parts;
+    //}
 
-    public void updateListDisplay()
-    {
-        string partsText = "";
+    //public void updateListDisplay()
+    //{
+    //    string partsText = "";
 
-        foreach (string s in parts)
-        {
-            partsText += s + "\n";
-        }
+    //    foreach (string s in parts)
+    //    {
+    //        partsText += s + "\n";
+    //    }
 
-        partsList.text = "Current Parts:\n" + partsText;
-    }
+    //    partsList.text = "Current Parts:\n" + partsText;
+    //}
 }
