@@ -28,7 +28,9 @@ public class ButtonTrigger : MonoBehaviour
         
         string parentName = other.gameObject.transform.parent.gameObject.name;
         int keypadTextlength = keypadInputField.GetComponent<InputField>().text.Length;
-        buttonSound.Play();
+        if(other.gameObject.tag == "Button") {
+            buttonSound.Play();
+        }
 
         // Numbers on keypad
         if (int.TryParse(parentName, out int result))

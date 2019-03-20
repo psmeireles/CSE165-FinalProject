@@ -18,7 +18,9 @@ public class TrashCan : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        trashSound.Play();
-        Destroy(other.gameObject);
+        if (other.gameObject.tag.Contains("Toy")) {
+            trashSound.Play();
+            Destroy(other.gameObject);
+        }
     }
 }
