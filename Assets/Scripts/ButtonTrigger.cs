@@ -112,7 +112,8 @@ public class ButtonTrigger : MonoBehaviour
             }
             else if (parentName.Equals("Toy4"))
             {
-                
+
+                toyNameField.GetComponent<InputField>().text = "Toy 4";
             }
         }
     }

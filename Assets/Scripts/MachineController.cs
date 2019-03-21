@@ -42,6 +42,7 @@ public class MachineController : MonoBehaviour
     public GameObject toy1;
     public GameObject toy2;
     public GameObject toy3;
+    public GameObject toy4;
     public Vector3 toySpawnLocation;
     public Text partsListText;
     public Text machineQueueText;
@@ -220,8 +221,10 @@ public class MachineController : MonoBehaviour
                 recipe.initializeToyObj(toy2);
                 break;
             case 2:
-
                 recipe.initializeToyObj(toy3);
+                break;
+            case 3:
+                recipe.initializeToyObj(toy4);
                 break;
         }
         toyRecipes.Add(recipe);
