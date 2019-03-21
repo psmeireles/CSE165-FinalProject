@@ -44,8 +44,10 @@ public class GameManager : MonoBehaviour
                 FinishedToysTable.remainingTables--;
             }
 
-            ObjectiveButton.tableRequirements += string.Format("Table {0}: {1} {2} with {3} different colors\r\n",
+            if(requiredQuantity > 0) {
+                ObjectiveButton.tableRequirements += string.Format("Table {0}: {1} {2} with at least {3} different colors\r\n",
                 items[0], requiredQuantity, items[1], requiredColors);
+            }
         }
 
         reader = File.OpenText("Assets/" + recipeFile.name + ".txt");
