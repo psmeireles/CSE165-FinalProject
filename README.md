@@ -12,4 +12,4 @@ The assignment description can be found [here](http://ivl.calit2.net/wiki/index.
 The blog we created to keep track of our progress can be accessed in this [link](https://prcse165.blogspot.com/).
 
 ## Demo
-Coming soon.
+[![](http://img.youtube.com/vi/nNvrIyAiYj8/0.jpg)](http://www.youtube.com/watch?v=nNvrIyAiYj8 "Demo")
