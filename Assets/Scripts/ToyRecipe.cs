@@ -24,17 +24,20 @@ public class ToyRecipe
         return A_parts <= aCount && B_parts <= bCount && C_parts <= cCount;
     }
 
-    public int subtractAParts(int aCount)
+
+    public int getAParts()
     {
-        return aCount - A_parts;
+        return A_parts;
     }
-    public int subtractBParts(int bCount)
+
+    public int getBParts()
     {
-        return bCount - B_parts;
+        return B_parts;
     }
-    public int subtractCParts(int cCount)
+
+    public int getCParts()
     {
-        return cCount - C_parts;
+        return C_parts;
     }
 
     public void initializeToyObj(GameObject obj)

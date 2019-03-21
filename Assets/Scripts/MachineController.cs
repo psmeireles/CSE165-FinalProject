@@ -124,6 +124,7 @@ public class MachineController : MonoBehaviour
     {
         if (Time.time - startTime > delayBetweenCopiesinSeconds)
         {
+            machineSound.Play();
             GameObject newToy = GameObject.Instantiate(toyRecipes[toy.getToyNum()-1].getToy());
             newToy.transform.Translate(toySpawnLocation, Space.World);
 
@@ -136,32 +137,43 @@ public class MachineController : MonoBehaviour
         machineStatus = status;
     }
 
-    private void checkToyParts()
+    public bool haveEnoughToyParts(int toyNum)
     {
-        
-        for (int i = 0; i < toyRecipes.Count; i++)
-        {
 
+        return toyRecipes[toyNum-1].hasEnoughParts(toyPartsCounter[0], toyPartsCounter[1], toyPartsCounter[2]);
+    }
 
-            if (toyRecipes[i].hasEnoughParts(toyPartsCounter[0], toyPartsCounter[1], toyPartsCounter[2]))
-            {
-                machineSound.Play();
-                GameObject newToy = GameObject.Instantiate(toyRecipes[i].getToy());
-                newToy.transform.Translate(toySpawnLocation, Space.World);
-                updatePartsListDisplay();
-            }
-        }
+    public void removePartsFromList(int toyNum)
+    {
+        ToyRecipe toyRecipe = toyRecipes[toyNum - 1];
+        toyPartsCounter[0] -= toyRecipe.getAParts();
+        toyPartsCounter[1] -= toyRecipe.getBParts();
+        toyPartsCounter[2] -= toyRecipe.getCParts();
+        updatePartsListDisplay();
     }
 
     public void updatePartsListDisplay()
     {
         string partsText = "";
 
-        foreach (string s in toyParts)
+        for (int i = 0; i < toyPartsCounter.Length; i++)
         {
-            partsText += s + "\n";
+            if(toyPartsCounter[i] > 0)
+            {
+                switch(i)
+                {
+                    case 0:
+                        partsText += "ToyPartA   " + toyPartsCounter[i] + "\n";
+                        break;
+                    case 1:
+                        partsText += "ToyPartB   " + toyPartsCounter[i] + "\n";
+                        break;
+                    case 2:
+                        partsText += "ToyPartC   " + toyPartsCounter[i] + "\n";
+                        break;
+                }
+            }
         }
-
         partsListText.text = "Current Parts:\n" + partsText;
     }
 

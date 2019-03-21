@@ -6,17 +6,27 @@ using UnityEngine.UI;
 public class ButtonTrigger : MonoBehaviour
 {
     AudioSource buttonSound;
+
+    private float warningTimerStart;
+    private bool showWarning;
     // Start is called before the first frame update
     void Start()
     {
         GameObject.Find("MachineInputField").GetComponent<InputField>().text = "Machine Status: Off";
         buttonSound = GetComponent<AudioSource>();
+
+        warningTimerStart = 0;
+        showWarning = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(showWarning && Time.time - warningTimerStart > 3)
+        {
+            GameManager.warning.text = string.Empty;
+            showWarning = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,10 +60,20 @@ public class ButtonTrigger : MonoBehaviour
                 string name = toyNameField.GetComponent<InputField>().text;
                 int toyNum = int.Parse(name.Substring(name.Length - 1));
                
-                machineController.addToQueue(name, count, toyNum);
-                machineController.setNumberOfCopies(count);
-                keypadInputField.GetComponent<InputField>().text = string.Empty;
-                toyNameField.GetComponent<InputField>().text = string.Empty;
+                if(!machineController.haveEnoughToyParts(toyNum))
+                {
+                    GameManager.warning.text = "Not enough parts to make this toy!";
+                    warningTimerStart = Time.time;
+                    showWarning = true;
+                }
+                else
+                {
+                    machineController.removePartsFromList(toyNum);
+                    machineController.addToQueue(name, count, toyNum);
+                    machineController.setNumberOfCopies(count);
+                    keypadInputField.GetComponent<InputField>().text = string.Empty;
+                    toyNameField.GetComponent<InputField>().text = string.Empty;
+                }
             }
 
             // Machine Menu
