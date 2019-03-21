@@ -307,6 +307,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: af1fd0a86968f864eb5f8939c76ef3a5,
         type: 3}
+    - target: {fileID: 54234282735689161, guid: 3841d7d388929f84bada2850c9642e85,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0b1fba64220421840bc47937838f79c5,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3841d7d388929f84bada2850c9642e85, type: 3}
 --- !u!4 &16595160 stripped
@@ -1982,6 +1988,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8721764130422238862, guid: 015c4abb7e58fe84b8c0625c21364cad,
+        type: 3}
+      propertyPath: m_Name
+      value: ToyPart1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8721764130422238862, guid: 015c4abb7e58fe84b8c0625c21364cad,
+        type: 3}
+      propertyPath: m_TagString
+      value: ToyPart
+      objectReference: {fileID: 0}
     - target: {fileID: 424449457170997184, guid: 015c4abb7e58fe84b8c0625c21364cad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2036,16 +2052,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8721764130422238862, guid: 015c4abb7e58fe84b8c0625c21364cad,
-        type: 3}
-      propertyPath: m_Name
-      value: ToyPart1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8721764130422238862, guid: 015c4abb7e58fe84b8c0625c21364cad,
-        type: 3}
-      propertyPath: m_TagString
-      value: ToyPart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 015c4abb7e58fe84b8c0625c21364cad, type: 3}
@@ -6933,6 +6939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftController: {fileID: 405135251}
+  speed: 0.15
 --- !u!136 &978787609
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7228,6 +7235,7 @@ MonoBehaviour:
   toy1: {fileID: 1980290098035503974, guid: b941a6af7dcb8374f8c592b2936c8cbf, type: 3}
   toy2: {fileID: 5445063693140621403, guid: 67bdb2324a26e284c8b59840a8d72473, type: 3}
   toy3: {fileID: 8476008947474526332, guid: a95c005f67c4d384c87c66f1fba7dc92, type: 3}
+  toy4: {fileID: 3197248858746623677, guid: d0434e1ed411b904380547e2608cc212, type: 3}
   toySpawnLocation: {x: 26.5, y: 2.137, z: -11}
   partsListText: {fileID: 990145858}
   machineQueueText: {fileID: 213393094}
@@ -8559,6 +8567,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 325909621}
     m_Modifications:
+    - target: {fileID: 8721764130422238862, guid: 015c4abb7e58fe84b8c0625c21364cad,
+        type: 3}
+      propertyPath: m_Name
+      value: ToyPart1
+      objectReference: {fileID: 0}
     - target: {fileID: 424449457170997184, guid: 015c4abb7e58fe84b8c0625c21364cad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8613,11 +8626,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8721764130422238862, guid: 015c4abb7e58fe84b8c0625c21364cad,
-        type: 3}
-      propertyPath: m_Name
-      value: ToyPart1
       objectReference: {fileID: 0}
     - target: {fileID: 1208811507, guid: 015c4abb7e58fe84b8c0625c21364cad, type: 3}
       propertyPath: rightHand
